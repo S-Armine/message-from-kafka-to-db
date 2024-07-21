@@ -18,7 +18,6 @@ public class MessageListener {
     public void consume(String message) {
         try {
             JsonNode node = JsonMapper.parse(message);
-            System.out.println("MESSAGE RECEIVED: " + message);
             messageService.addMessage(node);
         } catch (JsonProcessingException e) {
             Logger.getAnonymousLogger().severe("Error while parsing string to json.");;
